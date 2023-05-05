@@ -30,13 +30,15 @@ const SlideUpView = Animatable.createAnimatableComponent(View);
 
 const app = initializeApp(firebaseConfig);
 
+db = getDatabase(app);
+
+
 const MyPlant = () => {
   const [ledStatus, setLedStatus] = useState(null);
   const [analogStatus, setAnalogStatus] = useState("");
   const [showComponent, setShowComponent] = useState(false);
 
   useEffect(() => {
-    const db = getDatabase();
     const analogStatusRef = ref(db, "analogStatus");
     onValue(analogStatusRef, (snapshot) => {
       const data = snapshot.val();
@@ -45,14 +47,12 @@ const MyPlant = () => {
   }, []);
 
   const handleTurnOnLed = () => {
-    const db = getDatabase(app);
     const ledStatusRef = ref(db, "ledStatus");
     set(ledStatusRef, 1);
     setLedStatus("on");
   };
 
   const handleTurnOffLed = () => {
-    const db = getDatabase(app);
     const ledStatusRef = ref(db, "ledStatus");
     set(ledStatusRef, 0);
     setLedStatus("off");
