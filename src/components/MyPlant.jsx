@@ -34,18 +34,21 @@ const app = initializeApp(firebaseConfig);
 
 const MyPlant = () => {
   const [ledStatus, setLedStatus] = useState(null);
-  const [analogStatus, setAnalogStatus] = useState("");
+  const [humidityStatus, setHumidityStatus] = useState("");
   const [showComponent, setShowComponent] = useState(false);
   const [isCheckMotorMovement, setCheckMotorMovement] = useState(null);
 
   useEffect(() => {
     const db = getDatabase(app);
-    const analogStatusRef = ref(db, "analogStatus");
-    onValue(analogStatusRef, (snapshot) => {
+    const humidityStatusRef = ref(
+      db,
+      "Sensors/HumiditySensors/HumiditySensorsOne"
+    );
+    onValue(humidityStatusRef, (snapshot) => {
       const data = snapshot.val();
-      setAnalogStatus(data);
-    });
-  }, []);
+      setHumidityStatus(data);
+    })
+  }, []);  
 
   const handleToggle = () => {
     const db = getDatabase(app);
@@ -74,7 +77,6 @@ const MyPlant = () => {
   const handleComponent = () => {
     setShowComponent(!showComponent);
   };
-
 
   const MotorMovementUpIn = () => {
     const db = getDatabase(app);
@@ -124,7 +126,6 @@ const MyPlant = () => {
     set(MotorMovementRef, 0);
   };
 
-
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -135,11 +136,6 @@ const MyPlant = () => {
             <Button onPress={handleTurnOnLed} title="Encender LED" />
             <Button onPress={handleTurnOffLed} title="Apagar LED" />
           </View>
-        </View>
-        <View style={styles.card}>
-          <Text style={styles.title}>AnalogStatus</Text>
-          <Text>Medicion con el potenciometro: </Text>
-          <Text style={{ marginTop: 20, fontSize: 45 }}>{analogStatus}</Text>
         </View>
         <View style={styles.section}>
           <TouchableOpacity>
@@ -159,7 +155,33 @@ const MyPlant = () => {
             />
           </TouchableOpacity>
         </View>
-
+        <View style={styles.section}>
+          <TouchableOpacity onPress={handleComponent}>
+            <Text style={styles.textSection}>Planta de Aguacate</Text>
+            <Image
+              style={styles.imgStack}
+              source={require("../../assets/img/imagen-2.png")}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.section}>
+          <TouchableOpacity onPress={handleComponent}>
+            <Text style={styles.textSection}>Planta de Aguacate</Text>
+            <Image
+              style={styles.imgStack}
+              source={require("../../assets/img/imagen-2.png")}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.section}>
+          <TouchableOpacity onPress={handleComponent}>
+            <Text style={styles.textSection}>Planta de Aguacate</Text>
+            <Image
+              style={styles.imgStack}
+              source={require("../../assets/img/imagen-2.png")}
+            />
+          </TouchableOpacity>
+        </View>
         <View
           style={{
             marginTop: 10,
@@ -233,9 +255,16 @@ const MyPlant = () => {
           </View>
           {isCheckMotorMovement && (
             <View
-              style={{ margin: 25, alignItems: "center", justifyContent: "space-evenly" }}
+              style={{
+                margin: 25,
+                alignItems: "center",
+                justifyContent: "space-evenly",
+              }}
             >
-              <TouchableOpacity onPressIn={MotorMovementUpIn} onPressOut={MotorMovementUpOut}>
+              <TouchableOpacity
+                onPressIn={MotorMovementUpIn}
+                onPressOut={MotorMovementUpOut}
+              >
                 <AntDesign name="caretup" size={70} color="black" />
               </TouchableOpacity>
               <View
@@ -243,14 +272,24 @@ const MyPlant = () => {
                   flexDirection: "row",
                 }}
               >
-                <TouchableOpacity onPressIn={MotorMovementLeftIn} onPressOut={MotorMovementLeftOut}>
+                <TouchableOpacity
+                  onPressIn={MotorMovementLeftIn}
+                  onPressOut={MotorMovementLeftOut}
+                >
                   <AntDesign name="caretleft" size={70} color="black" />
                 </TouchableOpacity>
-                <TouchableOpacity onPressIn={MotorMovementRightIn} onPressOut={MotorMovementRightOut} style={{ marginLeft: 30, }}>
+                <TouchableOpacity
+                  onPressIn={MotorMovementRightIn}
+                  onPressOut={MotorMovementRightOut}
+                  style={{ marginLeft: 30 }}
+                >
                   <AntDesign name="caretright" size={70} color="black" />
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity onPressIn={MotorMovementDownIn} onPressOut={MotorMovementDownOut}>
+              <TouchableOpacity
+                onPressIn={MotorMovementDownIn}
+                onPressOut={MotorMovementDownOut}
+              >
                 <AntDesign name="caretdown" size={70} color="black" />
               </TouchableOpacity>
             </View>
@@ -296,7 +335,7 @@ const MyPlant = () => {
               Planta De Aguacate
             </Text>
             <View style={{ gap: 20, marginTop: 30 }}>
-              <Text style={{ fontSize: 20 }}>Humedad: 20</Text>
+              <Text style={{ fontSize: 20 }}>Humedad: {humidityStatus}</Text>
               <Text style={{ fontSize: 20 }}>Temperatura: 20</Text>
               <Text style={{ fontSize: 20 }}>Luz: 20</Text>
             </View>
@@ -370,7 +409,7 @@ const styles = StyleSheet.create({
   },
 });
 
-/*
+/* Sombra por si acaso
   shadowColor: "#000",
   shadowOffset: { width: 0, height: 2 },
   shadowOpacity: 0.2,
