@@ -9,6 +9,10 @@ import {
   ScrollView,
 } from "react-native";
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -30,6 +34,9 @@ import * as Animatable from "react-native-animatable";
 
 const SlideUpView = Animatable.createAnimatableComponent(View);
 
+const Tab = createBottomTabNavigator();
+const MyPlantStackNavigation = createStackNavigator();
+
 const app = initializeApp(firebaseConfig);
 
 const MyPlant = () => {
@@ -48,7 +55,7 @@ const MyPlant = () => {
       const data = snapshot.val();
       setHumidityStatus(data);
     })
-  }, []);  
+  }, []);
 
   const handleToggle = () => {
     const db = getDatabase(app);

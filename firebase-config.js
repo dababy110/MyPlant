@@ -3,7 +3,7 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyD2XDBNWVvNSjA5Xn0l2EfUFCb8vQwEsBM",
     authDomain: "myplant-a9731.firebaseapp.com",
     databaseURL: "https://myplant-a9731-default-rtdb.firebaseio.com",

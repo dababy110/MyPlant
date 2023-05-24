@@ -1,10 +1,14 @@
 import React from 'react';
-import Main from './src/components/Main';
+import Tabs from './src/components/Tabs';
+
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
 
   return (
-      <Main />
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
   );
 }
 
