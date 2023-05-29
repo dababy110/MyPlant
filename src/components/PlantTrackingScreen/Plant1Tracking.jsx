@@ -65,7 +65,7 @@ const PlantTracking = () => {
         setNewName('Nombre de la Planta');
         setIsBottomSheetVisible(false);
     };
-
+    
     return (
         <View>
             <View
@@ -75,6 +75,7 @@ const PlantTracking = () => {
                     backgroundColor: '#DEEAD8',
                     padding: 15,
                     borderBottomLeftRadius: 70,
+                    
                 }}
             >
                 <View style={{ marginTop: Constants.statusBarHeight, padding: 20 }}>

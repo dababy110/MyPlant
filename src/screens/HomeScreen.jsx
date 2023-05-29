@@ -1,20 +1,13 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
-import Constants from 'expo-constants';
+import { ScrollView, } from 'react-native';
 
-import { Ionicons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
-
-import { useNavigation } from '@react-navigation/native';
-import MovementController from '../components/MovementController';
+import PlantProfilesChoose from '../components/PlantsProfiles/PlantProfilesChoose';
 
 const HomeScreen = () => {
-    const navigation = useNavigation();
-    const [showComponent, setShowComponent] = useState(true);
 
     return (
-        <ScrollView>
-            <View style={{ marginTop: Constants.statusBarHeight, padding: 20, height: "100%" }}>
+        <ScrollView style={{ height: "100%"}}>
+            {/* <View style={{ marginTop: Constants.statusBarHeight, padding: 20, height: "100%" }}>
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
@@ -146,13 +139,9 @@ const HomeScreen = () => {
                         </View>
                     </View> : <MovementController />}
                 </View>
-            </View>
-        </ScrollView>
+            </View> */}
+            <PlantProfilesChoose/>
+        </ScrollView >
     )
 }
-
-const styles = StyleSheet.create({
-
-})
-
 export default HomeScreen;
