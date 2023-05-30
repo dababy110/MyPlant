@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, } from 'react-native';
 
 import PlantLettuce from './PlantLettuce';
-import PlantTomato from './PlantTomato.jsx';
+import PlantTomato from './PlantTomato';
 import PlantBeans from './PlantBeans';
 import PlantChili from './PlantChili';
 
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../../../firebase-config';
-import { getDatabase, onValue, ref, set } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database';
 
 const app = initializeApp(firebaseConfig);
 
@@ -120,14 +120,14 @@ const PlantProfilesChoose = () => {
                 </View>
             </View>}
             {profileSelect &&
-                <>
+                <View style={{ alignItems: "center", height: "100%",}}>
                     {profileComponet}
-                    <TouchableOpacity onPress={() => { handleProfileSelect(null) }} style={{ alignItems: "center", justifyContent: "center", backgroundColor: "#0D986A", borderRadius: 9, padding: 20, marginRight: 30, marginLeft: 30, marginTop: -60, }}>
+                    <TouchableOpacity onPress={() => { handleProfileSelect(null) }} style={{ alignItems: "center", justifyContent: "center", backgroundColor: "#0D986A", borderRadius: 9, padding: 20, width: 360, marginTop: -60, }}>
                         <Text style={{ color: "#fff", fontWeight: "bold", }}>
                             Cambiar Tipo de Planta
                         </Text>
                     </TouchableOpacity>
-                </>
+                </View>
             }
         </View >
     )

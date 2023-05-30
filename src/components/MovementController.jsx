@@ -78,10 +78,12 @@ const MovementController = () => {
         >
             <View
                 style={{
-                    width: 360,
-                    backgroundColor: "#fff",
-                    borderRadius: "20px",
+                    width: 360, 
+                    height: 110,
+                    marginBottom: 20,
                     alignItems: 'center',
+                    borderRadius: "20px",
+                    backgroundColor: "#fff",
                     justifyContent: 'center',
                 }}
             >
@@ -156,7 +158,7 @@ const MovementController = () => {
                             gap: 40,
                         }}
                     >
-                        <View style={{ flexDirection: "row", gap: 20,}}>
+                        <View style={{ flexDirection: "row", gap: 20, }}>
                             <TouchableOpacity
                                 onPressIn={MotorMovementUpIn}
                                 onPressOut={MotorMovementUpOut}
@@ -171,7 +173,7 @@ const MovementController = () => {
                             </TouchableOpacity>
                         </View>
 
-                        <View style={{ flexDirection: "row", gap: 20,}}>
+                        <View style={{ flexDirection: "row", gap: 20, }}>
                             <TouchableOpacity
                                 onPressIn={MotorMovementLeftIn}
                                 onPressOut={MotorMovementLeftOut}
