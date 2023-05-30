@@ -5,35 +5,68 @@ import PlantLettuce from './PlantLettuce';
 import PlantTomato from './PlantTomato.jsx';
 import PlantBeans from './PlantBeans';
 import PlantChili from './PlantChili';
-import { ScrollView } from 'react-native-gesture-handler';
+
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../../../firebase-config';
+import { getDatabase, onValue, ref, set } from 'firebase/database';
+
+const app = initializeApp(firebaseConfig);
 
 const PlantProfilesChoose = () => {
 
+    const db = getDatabase(app);
+
     const [profileSelect, setProfileSelect] = useState(null);
+
+    const TomatoPlantRef = ref(db, "Settings/TomatoPlant");
+    const LettucePlantRef = ref(db, "Settings/LettucePlant");
+    const ChilliPlantRef = ref(db, "Settings/ChilliPlant");
+    const BeanPlantRef = ref(db, "Settings/ChilliPlant");
 
     let profileComponet;
 
+
     if (profileSelect === 'plantTomato') {
         profileComponet = <PlantTomato />;
+        set(LettucePlantRef, false);
+        set(ChilliPlantRef, false);
+        set(TomatoPlantRef, true);
+        set(BeanPlantRef, false);
 
     } else if (profileSelect === 'plantLettuce') {
         profileComponet = <PlantLettuce />;
+        set(LettucePlantRef, true);
+        set(ChilliPlantRef, false);
+        set(TomatoPlantRef, false);
+        set(BeanPlantRef, false);
 
     } else if (profileSelect === 'plantBeans') {
         profileComponet = <PlantBeans />;
+        set(LettucePlantRef, false);
+        set(ChilliPlantRef, false);
+        set(TomatoPlantRef, false);
+        set(BeanPlantRef, true);
 
     } else if (profileSelect === 'plantChili') {
         profileComponet = <PlantChili />;
+        set(LettucePlantRef, false);
+        set(TomatoPlantRef, false);
+        set(ChilliPlantRef, true);
+        set(BeanPlantRef, false);
     }
 
     const handleProfileSelect = (profile) => {
         setProfileSelect(profile);
+        set(LettucePlantRef, false);
+        set(ChilliPlantRef, false);
+        set(TomatoPlantRef, false);
+        set(BeanPlantRef, false);
     }
 
 
     return (
-        <View style={{height: '100%', paddingBottom: 170,}}>
-            {!profileSelect && <View style={{ marginTop: 100,}}>
+        <View style={{ height: '100%', paddingBottom: 170, }}>
+            {!profileSelect && <View style={{ marginTop: 100, }}>
                 <Text style={{ padding: 20, width: "100%", fontSize: 30, fontWeight: 600, color: "#0D986A", }}>Elige el tipo de planta:</Text>
                 <View style={{
                     gap: 20,
@@ -86,10 +119,10 @@ const PlantProfilesChoose = () => {
                     </TouchableOpacity>
                 </View>
             </View>}
-            { profileSelect &&
+            {profileSelect &&
                 <>
                     {profileComponet}
-                    <TouchableOpacity onPress={() => {handleProfileSelect(null)}} style={{ alignItems: "center", justifyContent: "center", backgroundColor: "#0D986A", borderRadius: 9, padding: 20, marginRight: 30, marginLeft: 30, marginTop: -60,}}>
+                    <TouchableOpacity onPress={() => { handleProfileSelect(null) }} style={{ alignItems: "center", justifyContent: "center", backgroundColor: "#0D986A", borderRadius: 9, padding: 20, marginRight: 30, marginLeft: 30, marginTop: -60, }}>
                         <Text style={{ color: "#fff", fontWeight: "bold", }}>
                             Cambiar Tipo de Planta
                         </Text>
