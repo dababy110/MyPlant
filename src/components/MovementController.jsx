@@ -79,7 +79,6 @@ const MovementController = () => {
             <View
                 style={{
                     width: 360, 
-                    height: 110,
                     marginBottom: 20,
                     alignItems: 'center',
                     borderRadius: "20px",
