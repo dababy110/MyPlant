@@ -120,7 +120,7 @@ const Tabs = () => {
                 options={{
                     tabBarLabel: "",
                     tabBarIcon: ({ focused }) => (
-                        <View style={{ alignItems: 'center', justifyContent: 'center', top: 20, }}>
+                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 10,}}>
                             {focused ? <Ionicons name="ios-settings" size={35} color="#435B71" /> : <Ionicons name="ios-settings-outline" size={35} color="#435B71" />}
                         </View>
                     )
@@ -133,7 +133,7 @@ const Tabs = () => {
                     tabBarLabel: "",
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <View style={{ alignItems: 'center', justifyContent: 'center', top: 20, }}>
+                            <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 10,}}>
                                 {focused ? <Ionicons name="home" size={35} color="#435B71" /> : <Ionicons name="ios-home-outline" size={35} color="#435B71" />}
                             </View>
                         )
@@ -150,7 +150,7 @@ const Tabs = () => {
                     tabBarLabel: "",
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <View style={{ alignItems: 'center', justifyContent: 'center', top: 20, }}>
+                            <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 10,}}>
                                 {focused ? <Octicons name="person-fill" size={35} color="#435B71" /> : <Octicons name="person" size={35} color="#435B71" />}
                             </View>
                         )

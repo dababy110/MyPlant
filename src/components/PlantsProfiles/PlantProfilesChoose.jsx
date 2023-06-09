@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, } from 'react-native';
 
-import PlantLettuce from './PlantLettuce';
-import PlantTomato from './PlantTomato';
-import PlantBeans from './PlantBeans';
-import PlantChili from './PlantChili';
+import PlantsControll from './PlantsControll';
 
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../../../firebase-config';
@@ -25,30 +22,29 @@ const PlantProfilesChoose = () => {
 
     let profileComponet;
 
-
     if (profileSelect === 'plantTomato') {
-        profileComponet = <PlantTomato />;
+        profileComponet = <PlantsControll img={require('../../../assets/img/PlantTomatoes.png')}/>;
         set(LettucePlantRef, false);
         set(ChilliPlantRef, false);
         set(TomatoPlantRef, true);
         set(BeanPlantRef, false);
 
     } else if (profileSelect === 'plantLettuce') {
-        profileComponet = <PlantLettuce />;
+        profileComponet = <PlantsControll img={require('../../../assets/img/PlantLettuce.png')}/>;
         set(LettucePlantRef, true);
         set(ChilliPlantRef, false);
         set(TomatoPlantRef, false);
         set(BeanPlantRef, false);
 
     } else if (profileSelect === 'plantBeans') {
-        profileComponet = <PlantBeans />;
+        profileComponet = <PlantsControll img={require('../../../assets/img/PlantBeans.png')}/>;
         set(LettucePlantRef, false);
         set(ChilliPlantRef, false);
         set(TomatoPlantRef, false);
         set(BeanPlantRef, true);
 
     } else if (profileSelect === 'plantChili') {
-        profileComponet = <PlantChili />;
+        profileComponet = <PlantsControll img={require('../../../assets/img/PlantChili.png')}/>;
         set(LettucePlantRef, false);
         set(TomatoPlantRef, false);
         set(ChilliPlantRef, true);
@@ -65,8 +61,8 @@ const PlantProfilesChoose = () => {
 
 
     return (
-        <View style={{ height: '100%', paddingBottom: 170, }}>
-            {!profileSelect && <View style={{ marginTop: 100, }}>
+        <View style={{ height: '100%', paddingBottom: 150, }}>
+            {!profileSelect && <View style={{ marginTop: 50, }}>
                 <Text style={{ padding: 20, width: "100%", fontSize: 30, fontWeight: 600, color: "#0D986A", }}>Elige el tipo de planta:</Text>
                 <View style={{
                     gap: 20,

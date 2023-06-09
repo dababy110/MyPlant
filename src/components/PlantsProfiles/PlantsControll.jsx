@@ -7,9 +7,9 @@ import { AntDesign } from '@expo/vector-icons';
 
 import { useNavigation } from '@react-navigation/native';
 
-import MovementController from '../../components/MovementController';
+import MovementController from '../MovementController';
 
-const PlantTomato = () => {
+const PlantsControll = (props) => {
     const navigation = useNavigation();
     const [showComponent, setShowComponent] = useState(true);
 
@@ -60,7 +60,7 @@ const PlantTomato = () => {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#DCE8D6', width: 360, height: 110, borderRadius: "20px", }}>
                         <View style={{ justifyContent: 'flex-end', }}>
                             <Image
-                                source={require('../../../assets/img/Plant1.png')}
+                                source={props.img}
                                 style={{ width: 130, height: 150 }}
                             />
                         </View>
@@ -78,7 +78,7 @@ const PlantTomato = () => {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#D6E4E8', width: 360, height: 110, borderRadius: "20px", }}>
                         <View style={{ justifyContent: 'flex-end', }}>
                             <Image
-                                source={require('../../../assets/img/Plant1.png')}
+                                source={props.img}
                                 style={{ width: 130, height: 150 }}
                             />
                         </View>
@@ -96,7 +96,7 @@ const PlantTomato = () => {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#DCE8D6', width: 360, height: 110, borderRadius: "20px", }}>
                         <View style={{ justifyContent: 'flex-end', }}>
                             <Image
-                                source={require('../../../assets/img/Plant1.png')}
+                                source={props.img}
                                 style={{ width: 130, height: 150 }}
                             />
                         </View>
@@ -116,4 +116,4 @@ const PlantTomato = () => {
     )
 }
 
-export default PlantTomato
+export default PlantsControll
