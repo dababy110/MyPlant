@@ -44,7 +44,7 @@ const PlantProfilesChoose = () => {
         set(BeanPlantRef, true);
 
     } else if (profileSelect === 'plantChili') {
-        profileComponet = <PlantsControll img={require('../../../assets/img/PlantChili.png')}/>;
+        profileComponet = <PlantsControll img={require('../../../assets/img/PlantChilli.png')}/>;
         set(LettucePlantRef, false);
         set(TomatoPlantRef, false);
         set(ChilliPlantRef, true);
@@ -61,8 +61,8 @@ const PlantProfilesChoose = () => {
 
 
     return (
-        <View style={{ height: '100%', paddingBottom: 150, }}>
-            {!profileSelect && <View style={{ marginTop: 50, }}>
+        <View style={{ height: '100%', paddingBottom: 150,}}>
+            {!profileSelect && <View style={{ marginTop: 50, height: '100%', alignItems: 'center', justifyContent: 'center',}}>
                 <Text style={{ padding: 20, width: "100%", fontSize: 30, fontWeight: 600, color: "#0D986A", }}>Elige el tipo de planta:</Text>
                 <View style={{
                     gap: 20,
@@ -75,7 +75,7 @@ const PlantProfilesChoose = () => {
                 }}>
                     <TouchableOpacity onPress={() => handleProfileSelect('plantTomato')} style={style.profile}>
                         <Text style={style.profileText}>Planta de Tómate</Text>
-                        <Image source={require('../../../assets/img/Plant1.png')}
+                        <Image source={require('../../../assets/img/PlantTomatoes.png')}
                             style={{
                                 width: 120,
                                 height: 140,
@@ -85,7 +85,7 @@ const PlantProfilesChoose = () => {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => handleProfileSelect('plantLettuce')} style={style.profile}>
                         <Text style={style.profileText}>Planta de Lechuga</Text>
-                        <Image source={require('../../../assets/img/Plant2.png')}
+                        <Image source={require('../../../assets/img/PlantLettuce.png')}
                             style={{
                                 width: 120,
                                 height: 140,
@@ -95,7 +95,7 @@ const PlantProfilesChoose = () => {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => handleProfileSelect('plantBeans')} style={style.profile}>
                         <Text style={style.profileText}>Planta de Frijoles</Text>
-                        <Image source={require('../../../assets/img/Plant3.png')}
+                        <Image source={require('../../../assets/img/PlantBeans.png')}
                             style={{
                                 width: 120,
                                 height: 140,
@@ -105,7 +105,7 @@ const PlantProfilesChoose = () => {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => handleProfileSelect('plantChili')} style={style.profile}>
                         <Text style={style.profileText}>Planta de Chile Dulce</Text>
-                        <Image source={require('../../../assets/img/Plant4.png')}
+                        <Image source={require('../../../assets/img/PlantChilli.png')}
                             style={{
                                 width: 120,
                                 height: 140,

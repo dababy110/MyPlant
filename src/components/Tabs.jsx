@@ -10,13 +10,10 @@ import HomeScreen from "../screens/HomeScreen";
 
 import Login from '../components/Login';
 import Signup from '../components/SignUp';
-import Dashboard from '../components/Dashboard';
 
 import Plant1Tracking from './PlantTrackingScreen/Plant1Tracking';
 import Plant2Tracking from './PlantTrackingScreen/Plant2Tracking';
 import Plant3Tracking from './PlantTrackingScreen/Plant3Tracking';
-import Plant4Tracking from './PlantTrackingScreen/Plant4Tracking';
-import Plant5Tracking from './PlantTrackingScreen/Plant5Tracking';
 
 import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -56,43 +53,31 @@ const HomeStack = () => {
                     headerShown: false,
                 }}
             />
-            <HomeStackNavigation.Screen
-                name="Plant4Tracking"
-                component={Plant4Tracking}
-                options={{
-                    headerShown: false,
-                }}
-            />
-            <HomeStackNavigation.Screen
-                name="Plant5Tracking"
-                component={Plant5Tracking}
-                options={{
-                    headerShown: false,
-                }}
-            />
         </HomeStackNavigation.Navigator>
     );
 };
 
-// const ProfileStack = () => {
-//     <ProfileStackNavigation.Navigator initialRouteName="Dashboard">
-//         <ProfileStackNavigation.Screen
-//             name='Dashboard'
-//             component={Dashboard}
-//             options={{ headerShown: false, }}
-//         />
-//         <ProfileStackNavigation.Screen
-//             name='Login'
-//             component={Login}
-//             options={{ headerShown: false, }}
-//         />
-//         <ProfileStackNavigation.Screen
-//             name='SignUp'
-//             component={Signup}
-//             options={{ headerShown: false, }}
-//         />
-//     </ProfileStackNavigation.Navigator>
-// }
+const ProfileStack = () => {
+    return (
+        <ProfileStackNavigation.Navigator initialRouteName="ProfileScreen">
+            <ProfileStackNavigation.Screen
+                name='ProfileScreen'
+                component={ProfileScreen}
+                options={{ headerShown: false, }}
+            />
+            <ProfileStackNavigation.Screen
+                name='Login'
+                component={Login}
+                options={{ headerShown: false, }}
+            />
+            <ProfileStackNavigation.Screen
+                name='SignUp'
+                component={Signup}
+                options={{ headerShown: false, }}
+            />
+        </ProfileStackNavigation.Navigator>
+    )
+}
 
 const Tabs = () => {
     return (
@@ -102,12 +87,13 @@ const Tabs = () => {
                 tabBarActiveTintColor: "#6a6ce0",
                 showLabel: false,
                 tabBarStyle: {
+                    flex: 1,
                     position: "absolute",
-                    bottom: 30,
                     left: 20,
                     right: 20,
+                    margin: 0,
+                    bottom: 30,
                     elevation: 0,
-                    backgroundColor: "#ffffff",
                     borderRadius: 15,
                     height: 80,
                     ...styles.shadow,
@@ -120,7 +106,7 @@ const Tabs = () => {
                 options={{
                     tabBarLabel: "",
                     tabBarIcon: ({ focused }) => (
-                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 10,}}>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', height: 60, marginTop: 40, }}>
                             {focused ? <Ionicons name="ios-settings" size={35} color="#435B71" /> : <Ionicons name="ios-settings-outline" size={35} color="#435B71" />}
                         </View>
                     )
@@ -133,7 +119,7 @@ const Tabs = () => {
                     tabBarLabel: "",
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 10,}}>
+                            <View style={{ alignItems: 'center', justifyContent: 'center', height: 60, marginTop: 40, }}>
                                 {focused ? <Ionicons name="home" size={35} color="#435B71" /> : <Ionicons name="ios-home-outline" size={35} color="#435B71" />}
                             </View>
                         )
@@ -144,13 +130,13 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Profile"
-                component={ProfileScreen}
+                component={ProfileStack}
                 options={{
                     headerShown: false,
                     tabBarLabel: "",
                     tabBarIcon: ({ focused }) => {
                         return (
-                            <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 10,}}>
+                            <View style={{ alignItems: 'center', justifyContent: 'center', height: 60, marginTop: 40, }}>
                                 {focused ? <Octicons name="person-fill" size={35} color="#435B71" /> : <Octicons name="person" size={35} color="#435B71" />}
                             </View>
                         )
