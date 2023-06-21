@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   return (
-    <NavigationContainer style={{backgroundColor: "#fff",}}>
+    <NavigationContainer>
       <PlantProvider>
         <Tabs />
       </PlantProvider>
