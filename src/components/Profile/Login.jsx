@@ -13,7 +13,12 @@ import { firebase } from "../../../firebase-config";
 
 import { useNavigation } from "@react-navigation/native";
 
-import { AntDesign, Fontisto, EvilIcons, FontAwesome5 } from "@expo/vector-icons";
+import {
+  AntDesign,
+  Fontisto,
+  EvilIcons,
+  FontAwesome5,
+} from "@expo/vector-icons";
 
 const Login = () => {
   const navigation = useNavigation();
@@ -26,7 +31,7 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
   return (
     <ScrollView
       style={{ marginTop: Constants.statusBarHeight, padding: 40, gap: 50 }}

@@ -11,8 +11,9 @@ export const firebaseConfig = {
     storageBucket: "myplant-a9731.appspot.com",
     messagingSenderId: "836700780435",
     appId: "1:836700780435:web:2cb4c9b71b5751960b9a66",
-    measurementId: "G-Y9NPXYP0V0",
-};
+    measurementId: "G-Y9NPXYP0V0"
+  };
+
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);

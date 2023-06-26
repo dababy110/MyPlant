@@ -16,8 +16,7 @@ import Plant1Tracking from "./PlantTrackingScreen/Plant1Tracking";
 import Plant2Tracking from "./PlantTrackingScreen/Plant2Tracking";
 import Plant3Tracking from "./PlantTrackingScreen/Plant3Tracking";
 
-import { Octicons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { Octicons, Ionicons } from "@expo/vector-icons";
 
 import { firebase } from "../../firebase-config";
 
@@ -74,10 +73,10 @@ const ProfileStack = () => {
     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
 
     return subscriber;
-    a;
   }, []);
 
   if (initializing) return null;
+
 
   return (
     <ProfileStackNavigation.Navigator initialRouteName="ProfileScreen">
