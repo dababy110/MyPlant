@@ -29,7 +29,7 @@ const Login = () => {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
     } catch (error) {
-      console.log(error);
+      alert("User or password are incorrect. Please try again");
     }
   };
   return (

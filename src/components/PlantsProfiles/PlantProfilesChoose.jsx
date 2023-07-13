@@ -18,7 +18,7 @@ const PlantProfilesChoose = () => {
     const TomatoPlantRef = ref(db, "Settings/TomatoPlant");
     const LettucePlantRef = ref(db, "Settings/LettucePlant");
     const ChilliPlantRef = ref(db, "Settings/ChilliPlant");
-    const BeanPlantRef = ref(db, "Settings/ChilliPlant");
+    const BeanPlantRef = ref(db, "Settings/BeanPlant");
 
     let profileComponet;
 
@@ -43,11 +43,11 @@ const PlantProfilesChoose = () => {
         set(TomatoPlantRef, false);
         set(BeanPlantRef, true);
 
-    } else if (profileSelect === 'plantChili') {
+    } else if (profileSelect === 'plantChilli') {
         profileComponet = <PlantsControll img={require('../../../assets/img/PlantChilli.png')}/>;
         set(LettucePlantRef, false);
-        set(TomatoPlantRef, false);
         set(ChilliPlantRef, true);
+        set(TomatoPlantRef, false);
         set(BeanPlantRef, false);
     }
 
@@ -103,7 +103,7 @@ const PlantProfilesChoose = () => {
                             }}
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => handleProfileSelect('plantChili')} style={style.profile}>
+                    <TouchableOpacity onPress={() => handleProfileSelect('plantChilli')} style={style.profile}>
                         <Text style={style.profileText}>Planta de Chile Dulce</Text>
                         <Image source={require('../../../assets/img/PlantChilli.png')}
                             style={{
